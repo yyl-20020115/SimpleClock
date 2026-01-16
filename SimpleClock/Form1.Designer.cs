@@ -1,4 +1,4 @@
-﻿namespace small_baby_dragen
+﻿namespace SimpleClock
 {
     partial class Form1
     {

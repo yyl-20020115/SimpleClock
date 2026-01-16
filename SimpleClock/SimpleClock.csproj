@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{984E5A57-7C28-4897-97AF-FBC548CB5700}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>small_baby_dragen</RootNamespace>
-    <AssemblyName>small baby dragen</AssemblyName>
+    <RootNamespace>SimpleClock</RootNamespace>
+    <AssemblyName>SimpleClock</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -65,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

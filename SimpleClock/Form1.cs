@@ -1,27 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
 
-namespace small_baby_dragen
+namespace SimpleClock
 {
-
-
-
     public partial class Form1 : Form
     {
         public Form1()
         {
             //var d = DateTime.Now;
-
             InitializeComponent();
 
             //Apple apple0 = new Apple();
@@ -44,25 +31,13 @@ namespace small_baby_dragen
             //apple2.Eat();
 
             //int v = apple0.GetVolume();
-
-
-
-
-
-
-
-
-
-
         }
-        private Timer timer = new Timer();
+        private readonly Timer timer = new Timer();
         private void Form1_Load(object sender, EventArgs e)
         {
-
             this.timer.Interval = 1000;
             this.timer.Tick += Timer_Tick;
             this.timer.Start();
-
         }
         private readonly Pen second_pen = new Pen(Color.Red, 4);
         private readonly Pen miniute_pen = new Pen(Color.Red, 4);
@@ -76,7 +51,7 @@ namespace small_baby_dragen
         const int r_c = 120;
 
         private int b = 0;
-        private Font font = new Font(FontFamily.GenericSansSerif,
+        private readonly Font font = new Font(FontFamily.GenericSansSerif,
             40.0f, FontStyle.Regular);
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -85,23 +60,18 @@ namespace small_baby_dragen
             {
                 using (var g = Graphics.FromImage(bitmap))
                 {
-
                     g.Clear(Color.Green);
                     int x0 = this.Width / 2;
                     int y0 = this.Height / 2;
                     g.DrawRectangle(Pens.AliceBlue, x0 - 150, 1000, 350, 75);
 
                     //g.Clear(Color.Green);
-
-
                     g.FillPie(Brushes.Blue, new Rectangle(
                         x0 - 160, y0 - 160, 2 * 160, 2 * 160), 0, 360);
                     double alpha = 0;
 
-
                     for (int i = 0; i < 360; i += 30)
                     {
-
                         alpha = (i) * Math.PI / 180.0;//
                         int xs = (int)(x0 + r_a * Math.Cos(alpha));
                         int ys = (int)(y0 + r_a * Math.Sin(alpha));
@@ -115,9 +85,11 @@ namespace small_baby_dragen
                         int xst = (int)(x0 + (r_a + 32) * Math.Cos(alpha));
                         int yst = (int)(y0 + (r_a + 32) * Math.Sin(alpha));
 
-                        var sf = new StringFormat();
-                        sf.Alignment = StringAlignment.Center;
-                        sf.LineAlignment = StringAlignment.Center;
+                        var sf = new StringFormat
+                        {
+                            Alignment = StringAlignment.Center,
+                            LineAlignment = StringAlignment.Center
+                        };
                         g.DrawString(((i) / 30 + 1).ToString(), font, Brushes.Black, new PointF(xst, yst), sf);
                     }
 
@@ -159,9 +131,6 @@ namespace small_baby_dragen
                     //g.DrawLine(Pens.AliceBlue, x0 + 80, y0, x0 + 160, y0);
                     //g.DrawLine(Pens.AliceBlue, x0, y0 - 80, x0, y0 - 160);
                     //g.DrawLine(Pens.AliceBlue, x0, y0 + 80, x0, y0 + 160);
-
-
-
 
                     //alpha = (30) * Math.PI / 180.0;//
                     //int xs = (int)(x0 + r_a * Math.Cos(alpha));
@@ -223,12 +192,6 @@ namespace small_baby_dragen
                     g.DrawImage(bitmap, new Point(0, 0));
                 }
             }
-
-
         }
-
-
     }
 }
-
-
